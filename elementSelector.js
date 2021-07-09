@@ -1,0 +1,27 @@
+var headerLoding=document.getElementById('headerLoding'),       //Header Loding
+starrBtnCover=document.getElementById('starrBtnCover'),     //Button Selector
+homePage=document.getElementById('homePage'),               //Button Selector
+startExamBtn=document.getElementById('startExamBtn'),       //Button Selector
+oldResultBtn=document.getElementById('oldResultBtn'),       //Button Selector
+bottomBtnGroup=document.getElementById('bottom_btn_group'), //Button Selector
+nextBtn=document.getElementById('next'),                    //Next Button
+goBack=document.getElementById('goback'),               //Next Button
+tryAgainBtn=document.getElementById('tryAgainBtn'),         //Try Again Quiz Button
+timerCover=document.getElementById('timerCover'),           //Timer Cover
+timer=document.getElementById('timer'),                     //Timer
+QOC=document.getElementById('QOC'),                         //Question or Option Cover
+questionBar=document.getElementById('question_bar'),        //Question Selector
+question=document.getElementById('question'),               //Question
+optionWrap=document.getElementById('option_wrap'),          //Option Wrap
+allOptionEl=document.getElementById('option_wrap').children,//Option Children
+optionBar=document.getElementsByClassName('option_bar'),    //Option BAR
+optionText=document.getElementsByClassName('option_text'), //Option Text
+progress=document.getElementById('progress'),               //Question Progress Bar
+clickSound=document.getElementById('clickSound'),           //Sound Effact
+slideSound=document.getElementById('slideSound'),           //Sound Effact
+alertSound=document.getElementById('alertSound'),           //Sound Effact
+resultHistorey=document.getElementById('resultHistorey'),
+tbody=document.getElementById('tbody');                     //Table Body
+total=document.getElementById('total'),
+asivment=document.getElementById('asivment'),
+documentArray=[],storeValue=[],storeUserValue=[];

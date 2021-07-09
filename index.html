@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Quiz application</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <!--Header Nav Bar start-->
+    <header class="header_section">
+        <div class="container">
+            <div>
+                <h1 class="header_title">বাঙ্গালার নব্য লেখকদিগের প্রতি নিবেদন</h1>
+                <h2 class="header_sub_title">Power By (Quiz App)</h2>
+            </div>
+        </div>
+        <div class="header_loding" id="headerLoding"></div>
+    </header>
+     <!--Header Nav Bar End-->
+
+<!--Body Section Start Here Start-->
+<section class="body_section">
+<div class="container" >
+    <!--Starting All Buttton-->
+        <div class="start_btn_cover" id="starrBtnCover">
+            <button class="btn home_btn" id="homePage"> Home Page </button>
+            <button class="btn start_btn" id="startExamBtn"> Start Quiz </button>
+            <button class="btn start_btn result_btn" id="oldResultBtn">Old Result</button>
+        </div>
+    <!--Question + Option Section Here Start-->
+        <div class="question_option_cover" id="QOC">
+            <div class="question_cover">
+                <div class="count_down" id="timerCover">
+                    <span>0:<span id="timer">00</span></span>
+                </div>
+                <div class="question_bar" id="question_bar">
+                    <div class="progress" id="progress"></div>
+                        <h2 class="question_text" id="question"></h2>
+                </div>
+            </div>
+            <div id="option_wrap">
+                <div name='0' class="option_bar">
+                    <h2 class="option_text"></h2>
+                </div>
+                <div name='1' class="option_bar">
+                    <h2 class="option_text"></h2>
+                </div>
+                <div name='2' class="option_bar">
+                    <h2 class="option_text"></h2>
+                </div>
+                <div name='3' class="option_bar">
+                    <h2 class="option_text"></h2>
+                </div>
+            </div>
+    <!--Question + Option Section Here End-->
+
+
+    <!--Go Back and Next Button Here Start-->
+            <div class="button_group" id="bottom_btn_group">
+                <button class="btn show_ans"  id="goback" >Go Back</button>
+                <button class="btn skip_ans"  id='next'>Next</button>
+            </div>
+        </div>
+    <!--Go Back and Next Button Here End-->
+
+    <!--Result Historey Start-->
+    <div class="historey" id="resultHistorey">
+        <h1> Your Result </h1><h2> <span id="asivment"></span>/ <span id="total"></span> </h2>
+        <table class="table  table-bordered">
+            <thead class="thead-dark">
+                <tr><th> Your Ansower </th><th> Right Answer</th></tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+            <tfoot>
+                <td colspan="2"><button class="btn" id="tryAgainBtn"> Try Again </button></td>
+            </tfoot>
+        </table>
+    </div>
+     <!--Result Historey End-->
+</div>
+</section>
+<!--Body Section Start Here End-->
+
+
+ <!--Audio Section Here-->
+<audio src="sound/click.mp3"id="clickSound"></audio>
+<audio src="sound/slide.mp3" id="slideSound"></audio>
+<audio src="sound/time.mp3" id="alertSound"></audio>
+
+ <!--Footer Section-->
+ <section style=" background: #31516A;">
+    <div class="container">
+        <a href="https://facebook.com/zisan465" target="_blank" class="footer_link">Zisan FB Profile</a>
+    </div>
+</section>
+<!--Javascript Adding Here-->
+<script src="./allQuestoin.js"></script>
+<script src="elementSelector.js"></script>
+<script>
+    for (const key in page3) {documentArray.push(page3[key])};
+</script>
+<script src="main.js"></script>
+<script>
+    //Chagne Question Function Here
+var questionIndex=0;
+function changeQuestion(){
+questionIndex+=1;
+let length=questionIndex+1;
+if(length > documentArray.length){
+    localStorage.setItem('UserPoddoPage3Ans',JSON.stringify(storeValue));
+    progress.style.display='none';
+    clearInterval(interval);
+    showResult()
+}else{
+    for(i=0;i<=3;i++){
+        allOptionEl[i].classList.remove('select'); //If you click next then it's slide.
+    }
+    slidbar()
+    addQuestion(documentArray[questionIndex],length);
+    localStorage.setItem('UserPoddoPage3Ans',JSON.stringify(storeValue));
+    progress.style.display='none';
+    countdown()
+}
+}
+function getData(){
+    let getValue= localStorage.getItem('UserPoddoPage3Ans');
+    if(getValue != null){
+        storeUserValue= JSON.parse(getValue);
+    }
+}
+</script>
+</body>
+</html>
